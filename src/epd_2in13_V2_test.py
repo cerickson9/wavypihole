@@ -25,7 +25,7 @@ def printToDisplay(string):
 
   draw = ImageDraw.Draw(HBlackImage) # Create draw object and pass in the image layer we want to work with (HBlackImage)
 
-  font = ImageFont.truetype('./fonts/Montserrat-Black', 30) # Create our font, passing in the font file and font size
+  font = ImageFont.truetype('../fonts/Montserrat-Black', 30) # Create our font, passing in the font file and font size
 
   draw.text((25, 65), string, font = font, fill = 0)
 

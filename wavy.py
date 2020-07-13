@@ -3,7 +3,7 @@ sys.path.insert(1, "./lib") # Adds lib folder in this directory to sys
 import epd2in13_V2
 from PIL import Image, ImageDraw, ImageFont
 
-epd = epd2in7b.EPD() # get the display
+epd = epd2in13_V2.EPD() # get the display
 epd.init()           # initialize the display
 print("Clear...")    # prints to console, not the display, for debugging
 epd.Clear(0xFF)      # clear the display

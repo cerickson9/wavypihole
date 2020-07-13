@@ -24,13 +24,13 @@ def printToDisplay(string):
 
     draw = ImageDraw.Draw(image) # Create draw object and pass in the image layer we want to work with (HBlackImage)
   
-    font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 30)
+    font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 22)
 
     draw.text((25, 65), string, font = font, fill = 0)
 
     epd.display(epd.getbuffer(image))
 
-msg = "Hello Wranduin Love Club!"
+msg = "Hello Wranduins!"
 printToDisplay(msg)
 # try:
 #     logging.info("epd2in13_V2 Demo")

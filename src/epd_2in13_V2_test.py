@@ -24,7 +24,7 @@ def printToDisplay(string):
   HRedImage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
 
   draw = ImageDraw.Draw(HBlackImage) # Create draw object and pass in the image layer we want to work with (HBlackImage)
-  font = ImageFont.truetype(os.path.join(picdir, 'Montserrat-Black.ttc'), 15)
+  font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 15)
 
   draw.text((25, 65), string, font = font, fill = 0)
 

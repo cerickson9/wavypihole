@@ -11,7 +11,6 @@ import logging
 from waveshare_epd import epd2in13_V2
 import time
 from PIL import Image,ImageDraw,ImageFont
-from fonts.ttf import AmaticSC
 import traceback
 
 logging.basicConfig(level=logging.DEBUG)
@@ -25,9 +24,7 @@ def printToDisplay(string):
   HRedImage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
 
   draw = ImageDraw.Draw(HBlackImage) # Create draw object and pass in the image layer we want to work with (HBlackImage)
-  font = ImageFont.truetype(AmaticSC, 30)
-
-#   font = ImageFont.truetype('../fonts/Montserrat-Black', 30) # Create our font, passing in the font file and font size
+  font = ImageFont.truetype(os.path.join(picdir, 'Montserrat-Black.ttc'), 15)
 
   draw.text((25, 65), string, font = font, fill = 0)
 

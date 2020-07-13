@@ -20,17 +20,15 @@ print("Clear...")    # prints to console, not the display, for debugging
 epd.Clear(0xFF)      # clear the display
 
 def printToDisplay(string):
-  HBlackImage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
-  HRedImage = Image.new('1', (epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH), 255)
+    image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame    
 
-  draw = ImageDraw.Draw(HBlackImage) # Create draw object and pass in the image layer we want to work with (HBlackImage)
-  font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 15)
+    draw = ImageDraw.Draw(image) # Create draw object and pass in the image layer we want to work with (HBlackImage)
+  
+    font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 15)
 
-  draw.text((25, 65), string, font = font, fill = 0)
+    draw.text((25, 65), string, font = font, fill = 0)
 
-  epd.display(epd.getbuffer(HBlackImage), epd.getbuffer(HRedImage))
-
-  printToDisplay("Hello, World!")
+    epd.display(epd.getbuffer(image))
 
 msg = "hiiiii"
 printToDisplay(msg)

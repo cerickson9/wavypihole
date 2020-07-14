@@ -23,7 +23,7 @@ white = 1
 black = 0
 
 def printToDisplay(string):
-    img = Image.open("./logo.png")
+    img = Image.open(os.path.join(picdir, 'logo.bmp'))
     draw = ImageDraw.Draw(img)
     # image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame    
 

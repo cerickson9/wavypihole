@@ -24,14 +24,9 @@ black = 0
 
 def printToDisplay(string):
     img = Image.open(os.path.join(picdir, 'logo.bmp'))
-    draw = ImageDraw.Draw(img)
-    # image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame    
-
-    # draw = ImageDraw.Draw(image) # Create draw object and pass in the image layer we want to work with (HBlackImage)
-  
     font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 22)
-
-    draw.text((25, 30), string, font = font, fill = white)
+    # draw = ImageDraw.Draw(img)
+    draw.text((25, 30), string, font = font, fill = black)
 
     epd.display(epd.getbuffer(img))
 

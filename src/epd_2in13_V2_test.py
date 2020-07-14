@@ -19,14 +19,19 @@ epd.init(epd.FULL_UPDATE)
 print("Clear...")    # prints to console, not the display, for debugging
 epd.Clear(0xFF)      # clear the display
 
-def printToDisplay(string):
-    image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame    
+white = 1
+black = 0
 
-    draw = ImageDraw.Draw(image) # Create draw object and pass in the image layer we want to work with (HBlackImage)
+def printToDisplay(string):
+    img = Image.open("./logo.png")
+    draw = ImageDraw.Draw(img)
+    # image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame    
+
+    # draw = ImageDraw.Draw(image) # Create draw object and pass in the image layer we want to work with (HBlackImage)
   
     font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 22)
 
-    draw.text((25, 65), string, font = font, fill = 0)
+    draw.text((25, 30), string, font = font, fill = white)
 
     epd.display(epd.getbuffer(image))
 

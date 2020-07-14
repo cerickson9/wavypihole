@@ -32,7 +32,6 @@ def printToDisplay(string):
     # bmpimage = Image.open(os.path.join(picdir, 'logo.bmp'))
     # font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 22)
     # draw = ImageDraw.Draw(bmpimage)
-    # draw.text((25, 30), string, font = font, fill = white)
     # epd.display(epd.getbuffer(image))
     image1 = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
     logging.info('height: ')
@@ -41,6 +40,9 @@ def printToDisplay(string):
     logging.info(epd.width)
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
     image1.paste(bmp, (2,2))    
+    
+    draw.text((25, 30), string, font = font, fill = white)
+
     epd.display(epd.getbuffer(image1))
 
 msg = "Hello Jeff!"

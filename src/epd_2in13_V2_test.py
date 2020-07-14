@@ -25,9 +25,10 @@ def printToDisplay(string):
     background = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
     background.paste(bmp, (2,2))    
-    background.text((25, 30), string, font = font, fill = white)
+    draw = Image.new('1', (epd.height, epd.width), 255)
+    draw.text((25, 30), string, font = font, fill = white)
 
-    epd.display(epd.getbuffer(image1))
+    epd.display(epd.getbuffer(background), epd.getbuffer(draw))
  
 
     # image1 = Image.new('1', (epd.height, epd.width), 255) 

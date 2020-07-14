@@ -30,7 +30,7 @@ def printToDisplay(string):
 
     epd.display(epd.getbuffer(image))
 
-msg = "Hello Wranduins!"
+msg = "Hello Jeff!"
 printToDisplay(msg)
 # try:
 #     logging.info("epd2in13_V2 Demo")

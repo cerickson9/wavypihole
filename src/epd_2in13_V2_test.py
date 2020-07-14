@@ -24,7 +24,7 @@ white = 1
 black = 0
 
 def printToDisplay(string):
-    image_black = Image.open('logo.bmp')
+    image_black = Image.open(os.path.join(picdir, 'logo.bmp'))
     draw_black = ImageDraw.Draw(image_black)
     # image1 = Image.new('1', (epd.height, epd.width), 255) 
     # text = Image.new('1', (epd.height, epd.width), 255)

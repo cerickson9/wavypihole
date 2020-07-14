@@ -37,5 +37,5 @@ def printToDisplay(string):
     epd.display(epd.getbuffer(image1))
 
 
-msg = "Hello Jeff!"
+msg = "Hello World and such!"
 printToDisplay(msg)

@@ -33,7 +33,7 @@ def printToDisplay(string):
 
     draw.text((25, 30), string, font = font, fill = white)
 
-    epd.display(epd.getbuffer(image))
+    epd.display(epd.getbuffer(img))
 
 msg = "Hello Jeff!"
 printToDisplay(msg)

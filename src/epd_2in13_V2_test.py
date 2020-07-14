@@ -22,6 +22,8 @@ white = 1
 black = 0
 
 def printToDisplay(string):
+    font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 15)
+
     background = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
     background.paste(bmp, (2,2))   

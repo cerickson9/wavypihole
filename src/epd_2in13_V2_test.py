@@ -25,32 +25,12 @@ def printToDisplay(string):
     font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 15)
 
     background = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
-    bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
-    background.paste(bmp, (2,2))   
-
-    image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame    
+    image = Image.open(os.path.join(picdir, 'logo.bmp'))
     draw = ImageDraw.Draw(image)    
     draw.text((25, 30), string, font = font, fill = white)
 
-    epd.display(epd.getbuffer(background), epd.getbuffer(image))
- 
-
-    # image1 = Image.new('1', (epd.height, epd.width), 255) 
-    # text = Image.new('1', (epd.height, epd.width), 255)
-    # logging.info('height: ')
-    # logging.info(epd.height)
-    # logging.info('width: ')
-    # logging.info(epd.width)
-    # bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
-    # image1.paste(bmp, (2,2))    
-   
-    # draw
-
-    # draw.text((25, 30), string, font = font, fill = white)
-
-    # epd.display_frame(epd.get_frame_buffer(image_black),epd.get_frame_buffer(image_red))
-
     epd.display(epd.getbuffer(background))
+
 
 msg = "Hello Jeff!"
 printToDisplay(msg)

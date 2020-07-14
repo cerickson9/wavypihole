@@ -25,8 +25,8 @@ black = 0
 def printToDisplay(string):
     img = Image.open(os.path.join(picdir, 'logo.bmp'))
     font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 22)
-    # draw = ImageDraw.Draw(img)
-    draw.text((25, 30), string, font = font, fill = black)
+    draw = ImageDraw.Draw(img)
+    # draw.text((25, 30), string, font = font, fill = white)
 
     epd.display(epd.getbuffer(img))
 

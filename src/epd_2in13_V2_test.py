@@ -35,6 +35,7 @@ def printToDisplay(string):
     # draw.text((25, 30), string, font = font, fill = white)
     # epd.display(epd.getbuffer(image))
     image1 = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
+    logging.info('height: ' + epd.height + ' and width: ' + epd.width)
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
     image1.paste(bmp, (2,2))    
     epd.display(epd.getbuffer(image1))

@@ -24,26 +24,24 @@ white = 1
 black = 0
 
 def printToDisplay(string):
-    # image = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame    
-    # draw = ImageDraw.Draw(image)
+    image_black = Image.open('logo.bmp')
+    draw_black = ImageDraw.Draw(image_black)
+    # image1 = Image.new('1', (epd.height, epd.width), 255) 
+    # text = Image.new('1', (epd.height, epd.width), 255)
+    # logging.info('height: ')
+    # logging.info(epd.height)
+    # logging.info('width: ')
+    # logging.info(epd.width)
+    # bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
+    # image1.paste(bmp, (2,2))    
+   
+    # draw
 
-    # logging.info("=============")
-    # logging.info("Printing")
-    # bmpimage = Image.open(os.path.join(picdir, 'logo.bmp'))
-    # font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 22)
-    # draw = ImageDraw.Draw(bmpimage)
-    # epd.display(epd.getbuffer(image))
-    image1 = Image.new('1', (epd.height, epd.width), 255)  # 255: clear the frame
-    logging.info('height: ')
-    logging.info(epd.height)
-    logging.info('width: ')
-    logging.info(epd.width)
-    bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
-    image1.paste(bmp, (2,2))    
-    
-    draw.text((25, 30), string, font = font, fill = white)
+    # draw.text((25, 30), string, font = font, fill = white)
 
-    epd.display(epd.getbuffer(image1))
+    # epd.display_frame(epd.get_frame_buffer(image_black),epd.get_frame_buffer(image_red))
+
+    epd.display(epd.getbuffer(draw_black))
 
 msg = "Hello Jeff!"
 printToDisplay(msg)

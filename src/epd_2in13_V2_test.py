@@ -9,9 +9,7 @@ if os.path.exists(libdir):
 
 import logging
 from waveshare_epd import epd2in13_V2
-import time
 from PIL import Image,ImageDraw,ImageFont
-import traceback
 
 logging.basicConfig(level=logging.DEBUG)
 epd = epd2in13_V2.EPD() # get the display
@@ -24,8 +22,10 @@ white = 1
 black = 0
 
 def printToDisplay(string):
-    image_black = Image.open(os.path.join(picdir, 'logo.bmp'))
-    draw_black = ImageDraw.Draw(image_black)
+    background = Image.open(os.path.join(picdir, 'logo.bmp'))
+    image_black.paste(background, (2,2))    
+    background.text((25, 30), string, font = font, fill = white)
+
     # image1 = Image.new('1', (epd.height, epd.width), 255) 
     # text = Image.new('1', (epd.height, epd.width), 255)
     # logging.info('height: ')
@@ -41,7 +41,7 @@ def printToDisplay(string):
 
     # epd.display_frame(epd.get_frame_buffer(image_black),epd.get_frame_buffer(image_red))
 
-    epd.display(epd.getbuffer(draw_black))
+    epd.display(epd.getbuffer(background))
 
 msg = "Hello Jeff!"
 printToDisplay(msg)

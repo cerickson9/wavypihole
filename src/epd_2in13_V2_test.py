@@ -32,7 +32,7 @@ def printToDisplay(string):
     draw = ImageDraw.Draw(image)    
     draw.text((25, 30), string, font = font, fill = white)
 
-    epd.display(epd.getbuffer(background))
+    epd.display(epd.getbuffer(background), epd.getbuffer(image))
  
 
     # image1 = Image.new('1', (epd.height, epd.width), 255) 

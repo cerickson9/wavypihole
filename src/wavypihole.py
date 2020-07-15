@@ -45,11 +45,12 @@ def printToDisplay():
     epd.display(epd.getbuffer(image1))
 
 try:
-    response = urllib2.urlopen('http://192.168.1.53/admin/api.php', data.encode('utf-8'))
+    response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
 
-    json_string = response.read().decode('utf-8')
+    json_string = response.read()
 
-    parsed_json = json.loads(json_string)
+    
+    parsed_json = json.loads(json.dumps(json_string))
  
     logging.debug(parsed_json)
 

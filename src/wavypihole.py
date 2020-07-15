@@ -53,8 +53,8 @@ try:
 
     logging.debug(parsed_json)
     logging.debug(type(parsed_json))
-    adsblocked = parsed_json["ads_blocked_today"]
-    ratioblocked = parsed_json["ads_percentage_today"]
+    adsblocked = parsed_json[u"ads_blocked_today"]
+    ratioblocked = parsed_json[u"ads_percentage_today"]
     f.close()
     # printToDisplay()
 except:

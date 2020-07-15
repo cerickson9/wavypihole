@@ -36,11 +36,13 @@ try:
     adsblocked = parsed_json[0]['ads_blocked_today']
 #   ratioblocked = parsed_json['ads_percentage_today']
     f.close()
+    printToDisplay()
 except:
     queries = '?'
     adsblocked = '?'
     ratio = '?'
     ratioblocked = '?'
+    printToDisplay()
 
 logging.debug(adsblocked)
 
@@ -59,4 +61,3 @@ def printToDisplay():
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 
-printToDisplay()

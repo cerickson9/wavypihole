@@ -46,7 +46,7 @@ def printToDisplay():
 
 try:
     json_string = requests.get('http://192.168.1.53/admin/api.php')
-    
+    logging.debug(json_string)
     parsed_json = json_string.json()
 
     logging.debug(parsed_json.keys())

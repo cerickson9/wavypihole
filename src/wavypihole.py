@@ -11,7 +11,7 @@ if os.path.exists(libdir):
 import json
 import urllib2
 import logging
-import time
+import datetime
 
 from waveshare_epd import epd2in13_V2
 from PIL import Image,ImageDraw,ImageFont
@@ -24,6 +24,7 @@ logging.info("Starting")
 
 white = 1
 black = 0
+d = datetime.datetime.today()
 
 try:
     response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
@@ -53,7 +54,7 @@ def printToDisplay():
 
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
     draw.text((25, 50), "font example", font = font, fill = black) 
-    draw.text((25, 75), time.strftime("%H:%M:%S"), font = font, fill = black)
+    draw.text((25, 75), d.day + "/" + d.month + "/" + d.year, font = font, fill = black)
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 

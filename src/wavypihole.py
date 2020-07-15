@@ -21,23 +21,23 @@ epd.init(epd.FULL_UPDATE)
 logging.info("=============")
 logging.info("Starting")
 
-
 white = 1
 black = 0
 
 try:
-  f = urlopen('http://192.168.1.53/admin/api.php')
-  json_string = f.read()
-  logging.debug(json_string)
+    response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
 
-  parsed_json = json.loads(json_string)
-  adsblocked = parsed_json['ads_blocked_today']
+    json_string = response.read()
+    logging.debug(json_string)
+
+    parsed_json = json.loads(json_string)
+    adsblocked = parsed_json['ads_blocked_today']
 #   ratioblocked = parsed_json['ads_percentage_today']
-  f.close()
+    f.close()
 except:
-  queries = '?'
-  adsblocked = '?'
-  ratio = '?'
+    queries = '?'
+    adsblocked = '?'
+    ratio = '?'
 
 def printToDisplay():
     font = ImageFont.truetype(os.path.join(fontdir, 'FredokaOne-Regular.otf'), 15)

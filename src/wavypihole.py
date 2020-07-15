@@ -46,8 +46,8 @@ try:
 
     json_string = response.read()
     parsed_json = json.loads(json_string)
-    decoded_json = json.dumps(parsed.json)
     logging.debug(parsed_json)
+    decoded_json = json.dumps(parsed_json)
     logging.debug(decoded_json)
 
     adsblocked = parsed_json['ads_blocked_today'].decode('utf-8')

@@ -11,6 +11,7 @@ if os.path.exists(libdir):
 import json
 import urllib2
 import logging
+import time
 
 from waveshare_epd import epd2in13_V2
 from PIL import Image,ImageDraw,ImageFont
@@ -52,7 +53,7 @@ def printToDisplay():
 
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
     draw.text((25, 50), "font example", font = font, fill = black) 
-
+    draw.text((25, 75), time.strftime("%H:%M:%S"), font = font, fill = black)
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 

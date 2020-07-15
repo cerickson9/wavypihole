@@ -30,7 +30,7 @@ try:
   json_string = f.read()
   parsed_json = json.loads(json_string)
   adsblocked = parsed_json['ads_blocked_today']
-  ratioblocked = parsed_json['ads_percentage_today']
+#   ratioblocked = parsed_json['ads_percentage_today']
   logging.info(adsblocked)
   f.close()
 except:
@@ -47,7 +47,7 @@ def printToDisplay():
     draw = ImageDraw.Draw(image1)  # Initialize ImageDraw over the container
 
     draw.text((25, 20), str(adsblocked), font = font, fill = white) 
-    draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = white) 
+    # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = white) 
     epd.display(epd.getbuffer(image1))
 
 printToDisplay()

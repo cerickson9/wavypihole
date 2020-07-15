@@ -46,6 +46,8 @@ def printToDisplay():
     draw = ImageDraw.Draw(image1)  # Initialize ImageDraw over the container
 
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
+    draw.text((25, 20), "font example", font = font, fill = black) 
+
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = white) 
     epd.display(epd.getbuffer(image1))
 

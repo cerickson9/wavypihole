@@ -45,20 +45,14 @@ def printToDisplay():
     epd.display(epd.getbuffer(image1))
 
 try:
-    r = requests.get('http://192.168.1.53/admin/api.php')
-
-    print r.json()
-    response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
-
-
-    json_string = response.read()
+    json_string = requests.get('http://192.168.1.53/admin/api.php')
     
-    parsed_json = json.loads(json_string)
+    parsed_json = json_string.json()
 
     logging.debug(parsed_json)
     logging.debug(type(parsed_json))
-    adsblocked = parsed_json[u"ads_blocked_today"]
-    ratioblocked = parsed_json[u"ads_percentage_today"]
+    adsblocked = parsed_json.get("ads_blocked_today")
+    # ratioblocked = parsed_json[u"ads_percentage_today"]
     f.close()
     # printToDisplay()
 except:

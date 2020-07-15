@@ -52,7 +52,7 @@ try:
     print string_data
     
     logging.debug(type(string_data))
-    adsblocked = string_data['ads_blocked_today']
+    adsblocked = string_data['ads_blocked_today'].decode('utf-8')
     logging.debug(adsblocked)
     # ratioblocked = parsed_json[u"ads_percentage_today"]
     f.close()

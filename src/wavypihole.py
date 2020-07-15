@@ -79,7 +79,7 @@ try:
     json_string = response.read()
     
     unicode_json = json.loads(json_string)
-    parsed_json = json_loads_byteified(unicode_json)
+    parsed_json = json_load_byteified(unicode_json)
     logging.debug(parsed_json)
     logging.debug(type(parsed_json))
     adsblocked = parsed_json["ads_blocked_today"]

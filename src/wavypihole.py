@@ -38,7 +38,7 @@ except:
     ratio = '?'
 
 def printToDisplay():
-    font = ImageFont.truetype(os.path.join(fontdir, 'FredokaOne-Regular.otf'), 15)
+    font = ImageFont.truetype(os.path.join(fontdir, 'FredokaOne-Regular.otf'), 20)
 
     image1 = Image.new('1', (epd.height, epd.width), 255)  # You only need to initialize this container once
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))

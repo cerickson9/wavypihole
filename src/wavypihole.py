@@ -46,6 +46,7 @@ except:
 logging.debug(adsblocked)
 def printToDisplay():
     font = ImageFont.truetype(os.path.join(fontdir, 'FredokaOne-Regular.otf'), 20)
+    smaller_font = ImageFont.truetype(os.path.join(fontdir, 'FredokaOne-Regular.otf'), 15)
 
     image1 = Image.new('1', (epd.height, epd.width), 255)  # You only need to initialize this container once
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
@@ -54,7 +55,7 @@ def printToDisplay():
 
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
     draw.text((25, 50), "font example", font = font, fill = black) 
-    draw.text((25, 75), str(d.day) + "/" + str(d.month) + "/" + str(d.year), font = font, fill = black)
+    draw.text((25, 95), str(d.day) + "/" + str(d.month) + "/" + str(d.year), font = smaller_font, fill = black)
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 

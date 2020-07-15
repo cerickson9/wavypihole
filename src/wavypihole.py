@@ -9,7 +9,6 @@ if os.path.exists(libdir):
     sys.path.append(libdir)
 
 import json
-import yaml
 import urllib2
 import logging
 import datetime
@@ -31,7 +30,7 @@ try:
     response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
 
     json_string = response.read()
-    parsed_json = json.loads(json_string)
+    parsed_json = json.load(json_string)
     further_json = byteify(parsed_json)
     logging.debug(parsed_json)
     logging.debug(further_json)

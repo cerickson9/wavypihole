@@ -9,6 +9,7 @@ if os.path.exists(libdir):
     sys.path.append(libdir)
 
 import json
+import yaml
 import urllib2
 import logging
 import datetime
@@ -30,7 +31,8 @@ try:
     response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
 
     json_string = response.read()
-    parsed_json = json.safe_load(json_string)
+    loaded = json.loads(json_string)
+    parsed_json = yalm.safe_load(loaded)
     logging.debug(parsed_json)
     logging.debug(parsed_json["ads_blocked_today"])
 

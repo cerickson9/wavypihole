@@ -28,7 +28,7 @@ d = datetime.datetime.today()
 
 def printToDisplay():
     font = ImageFont.truetype(os.path.join(fontdir, 'FredokaOne-Regular.otf'), 20)
-    smaller_font = ImageFont.truetype(os.path.join(fontdir, 'FredokaOne-Regular.otf'), 15)
+    smaller_font = ImageFont.truetype(os.path.join(fontdir, 'FredokaOne-Regular.otf'), 10)
 
     image1 = Image.new('1', (epd.height, epd.width), 255)  # You only need to initialize this container once
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
@@ -36,7 +36,7 @@ def printToDisplay():
     draw = ImageDraw.Draw(image1)  # Initialize ImageDraw over the container
 
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
-    draw.text((25, 50), "font example", font = font, fill = black) 
+    draw.text((25, 50), "example ", font = font, fill = black) 
     draw.text((25, 100), str(d.month) + "/" + str(d.day)  + "/" + str(d.year) + " ", font = smaller_font, fill = black)
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
@@ -48,10 +48,10 @@ try:
     parsed_json = json.loads(json_string)
     logging.debug(parsed_json)
     decoded_json = json.dumps(parsed_json)
-    logging.debug(decoded_json)
+    logging.debug(type(decoded_json))
 
     adsblocked = decoded_json['ads_blocked_today']
-#   ratioblocked = parsed_json['ads_percentage_today']
+    ratioblocked = decoded_json['ads_percentage_today']
     f.close()
     printToDisplay()
 except:

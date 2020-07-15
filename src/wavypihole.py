@@ -50,7 +50,7 @@ try:
     logging.debug(parsed_json)
     decoded_json = json.dumps(parsed_json)
     json_final = pickle.loads(decoded_json)
-    logging.debug(type(json_final))
+    logging.debug(json_final)
 
     adsblocked = json_final['ads_blocked_today']
     ratioblocked = json_final['ads_percentage_today']

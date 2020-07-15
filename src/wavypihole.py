@@ -9,6 +9,7 @@ if os.path.exists(libdir):
     sys.path.append(libdir)
 
 import json
+import pickle
 import urllib2
 import logging
 import datetime
@@ -48,10 +49,11 @@ try:
     parsed_json = json.loads(json_string)
     logging.debug(parsed_json)
     decoded_json = json.dumps(parsed_json)
-    logging.debug(type(decoded_json))
+    json_final = pickle.Unpickler(decoded_json)
+    logging.debug(type(json_final))
 
-    adsblocked = decoded_json['ads_blocked_today']
-    ratioblocked = decoded_json['ads_percentage_today']
+    adsblocked = json_final['ads_blocked_today']
+    ratioblocked = json_final['ads_percentage_today']
     f.close()
     printToDisplay()
 except:

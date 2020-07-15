@@ -32,8 +32,7 @@ try:
     json_string = response.read()
     parsed_json = json.loads(json_string)
     logging.debug(parsed_json)
-    logging.debug(pprint(vars(your_object)))
-    print parsed_json[0]["ads_blocked_today"]
+    logging.debug(parsed_json[0]["ads_blocked_today"])
 
     adsblocked = parsed_json[0]['ads_blocked_today']
 #   ratioblocked = parsed_json['ads_percentage_today']
@@ -56,7 +55,7 @@ def printToDisplay():
 
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
     draw.text((25, 50), "font example", font = font, fill = black) 
-    draw.text((25, 100), str(d.month) + str(d.day) + "/" + "/" + str(d.year) + " ", font = smaller_font, fill = black)
+    draw.text((25, 100), str(d.month) + "/" + str(d.day)  + "/" + str(d.year) + " ", font = smaller_font, fill = black)
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 

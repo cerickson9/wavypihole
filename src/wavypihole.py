@@ -9,7 +9,7 @@ if os.path.exists(libdir):
     sys.path.append(libdir)
 
 import json
-import reqiests
+import requests
 import urllib2
 import urllib
 

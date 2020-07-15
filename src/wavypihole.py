@@ -53,9 +53,9 @@ try:
     parsed_json = json.loads(json.dumps(json_string))
  
     logging.debug(parsed_json)
-
-    adsblocked = parsed_json['ads_blocked_today']
-    ratioblocked = parsed_json['ads_percentage_today']
+    logging.debug(type(parsed_json))
+    adsblocked = parsed_json["ads_blocked_today"]
+    ratioblocked = parsed_json["ads_percentage_today"]
     f.close()
     printToDisplay()
 except:

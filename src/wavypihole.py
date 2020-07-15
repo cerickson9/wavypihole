@@ -30,6 +30,8 @@ try:
     json_string = response.read()
     parsed_json = json.loads(json_string)
     logging.debug(parsed_json)
+    logging.debug(pprint(vars(your_object)))
+
     adsblocked = parsed_json('ads_blocked_today')
 #   ratioblocked = parsed_json['ads_percentage_today']
     f.close()

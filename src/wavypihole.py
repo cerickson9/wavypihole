@@ -8,7 +8,7 @@ fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
-import json
+import json, ast
 import pickle
 import urllib2
 import urllib
@@ -72,14 +72,14 @@ def _byteify(data, ignore_dicts = False):
         }
     # if it's anything else, return it in its original form
     return data
-
+    
 try:
     response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
 
     json_string = response.read()
     
     unicode_json = json.loads(json_string)
-    parsed_json = json_load_byteified(unicode_json)
+    parsed_json = ast.literal_eval(json.dumps(unicode_json))
     logging.debug(parsed_json)
     logging.debug(type(parsed_json))
     adsblocked = parsed_json["ads_blocked_today"]

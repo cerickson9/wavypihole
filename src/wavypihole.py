@@ -49,7 +49,6 @@ try:
     logging.debug(json_string)
     parsed_json = json_string.json()
     print parsed_json
-    logging.debug(print parsed_json)
     logging.debug(type(parsed_json))
     adsblocked = parsed_json.get("ads_blocked_today")
     logging.debug(adsblocked)

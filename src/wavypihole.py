@@ -54,7 +54,7 @@ def printToDisplay():
 
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
     draw.text((25, 50), "font example", font = font, fill = black) 
-    draw.text((25, 75), d.day + "/" + d.month + "/" + d.year, font = font, fill = black)
+    draw.text((25, 75), str(d.day) + "/" + str(d.month) + "/" + str(d.year), font = font, fill = black)
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 

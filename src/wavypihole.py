@@ -11,7 +11,7 @@ if os.path.exists(libdir):
 import json
 import pickle
 import urllib2
-from urllib import urlencode
+import urllib
 
 import logging
 import datetime
@@ -57,12 +57,12 @@ try:
     adsblocked = parsed_json["ads_blocked_today"]
     ratioblocked = parsed_json["ads_percentage_today"]
     f.close()
-    printToDisplay()
+    # printToDisplay()
 except:
     queries = '?'
     adsblocked = '?'
     ratio = '?'
     ratioblocked = '?'
-    printToDisplay()
+    # printToDisplay()
 
 logging.debug(adsblocked)

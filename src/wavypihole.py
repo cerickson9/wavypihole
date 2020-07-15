@@ -46,9 +46,11 @@ try:
 
     json_string = response.read()
     parsed_json = json.loads(json_string)
+    decoded_json = json.dumps(parsed.json)
     logging.debug(parsed_json)
+    logging.debug(decoded_json)
 
-    adsblocked = parsed_json['ads_blocked_today']
+    adsblocked = parsed_json['ads_blocked_today'].decode('utf-8')
     logging.debug(type(parsed_json))
 #   ratioblocked = parsed_json['ads_percentage_today']
     f.close()

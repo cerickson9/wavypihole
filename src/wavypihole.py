@@ -43,17 +43,16 @@ def printToDisplay():
     epd.display(epd.getbuffer(image1))
 
 try:
-    response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
+    response = urllib2.urlopen('http://192.168.1.53/admin/api.php', data.encode('utf-8'))
 
-    json_string = response.read()
-    parsed_json = json.loads(json_string).decode('utf-8')
+    json_string = response.read().decode('utf-8')
+
+    parsed_json = json.loads(json_string)
+ 
     logging.debug(parsed_json)
-    decoded_json = json.dumps(parsed_json)
-    json_final = pickle.loads(decoded_json)
-    logging.debug(json_final)
 
-    adsblocked = json_final['ads_blocked_today']
-    ratioblocked = json_final['ads_percentage_today']
+    adsblocked = parsed_json['ads_blocked_today']
+    ratioblocked = parsed_json['ads_percentage_today']
     f.close()
     printToDisplay()
 except:

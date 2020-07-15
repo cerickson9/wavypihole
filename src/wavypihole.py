@@ -50,7 +50,7 @@ try:
     decoded_json = json.dumps(parsed_json)
     logging.debug(decoded_json)
 
-    adsblocked = parsed_json['ads_blocked_today']
+    adsblocked = decoded_json['ads_blocked_today']
 #   ratioblocked = parsed_json['ads_percentage_today']
     f.close()
     printToDisplay()

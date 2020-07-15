@@ -28,10 +28,8 @@ try:
     response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
 
     json_string = response.read()
-    logging.debug(json_string)
-
     parsed_json = json.loads(json_string)
-    adsblocked = parsed_json['ads_blocked_today']
+    adsblocked = parsed_json('ads_blocked_today')
 #   ratioblocked = parsed_json['ads_percentage_today']
     f.close()
 except:

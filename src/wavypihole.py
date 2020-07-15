@@ -32,7 +32,7 @@ try:
     logging.debug(parsed_json)
     logging.debug(pprint(vars(your_object)))
 
-    adsblocked = parsed_json('ads_blocked_today')
+    adsblocked = parsed_json['ads_blocked_today']
 #   ratioblocked = parsed_json['ads_percentage_today']
     f.close()
 except:
@@ -53,7 +53,7 @@ def printToDisplay():
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
     draw.text((25, 50), "font example", font = font, fill = black) 
 
-    # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = white) 
+    draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 
 printToDisplay()

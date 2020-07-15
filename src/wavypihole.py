@@ -9,7 +9,7 @@ if os.path.exists(libdir):
     sys.path.append(libdir)
 
 import json
-import pickle
+import reqiests
 import urllib2
 import urllib
 
@@ -45,7 +45,11 @@ def printToDisplay():
     epd.display(epd.getbuffer(image1))
 
 try:
+    r = requests.get('http://192.168.1.53/admin/api.php')
+
+    print r.json()
     response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
+
 
     json_string = response.read()
     

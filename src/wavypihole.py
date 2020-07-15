@@ -4,6 +4,7 @@ import sys
 import os
 picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
 libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
+fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'font')
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
@@ -13,7 +14,6 @@ import logging
 
 from waveshare_epd import epd2in13_V2
 from PIL import Image,ImageDraw,ImageFont
-from font_fredoka_one import FredokaOne
 
 logging.basicConfig(level=logging.DEBUG)
 epd = epd2in13_V2.EPD() 
@@ -38,7 +38,7 @@ except:
   ratio = '?'
 
 def printToDisplay():
-    font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 15)
+    font = ImageFont.truetype(os.path.join(fontdir, 'FredokaOne-Regular.otf'), 15)
 
     image1 = Image.new('1', (epd.height, epd.width), 255)  # You only need to initialize this container once
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))

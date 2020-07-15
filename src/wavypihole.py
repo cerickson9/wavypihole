@@ -48,9 +48,11 @@ try:
     json_string = requests.get('http://192.168.1.53/admin/api.php')
     logging.debug(json_string)
     parsed_json = json_string.json()
-    print parsed_json
-    logging.debug(type(parsed_json))
-    adsblocked = parsed_json.get("ads_blocked_today")
+    string_data = dict([(str(k), v) for k, v in parsed_json.items()])
+    print string_data
+    
+    logging.debug(type(string_data))
+    adsblocked = string_data.get("ads_blocked_today")
     logging.debug(adsblocked)
     # ratioblocked = parsed_json[u"ads_percentage_today"]
     f.close()

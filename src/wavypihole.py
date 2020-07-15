@@ -28,10 +28,11 @@ black = 0
 try:
   f = urlopen('http://192.168.1.53/admin/api.php')
   json_string = f.read()
+  logging.info(json_string)
+
   parsed_json = json.loads(json_string)
   adsblocked = parsed_json['ads_blocked_today']
 #   ratioblocked = parsed_json['ads_percentage_today']
-  logging.info(adsblocked)
   f.close()
 except:
   queries = '?'

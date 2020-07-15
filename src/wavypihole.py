@@ -11,6 +11,8 @@ if os.path.exists(libdir):
 import json
 import pickle
 import urllib2
+from urllib import urlencode
+
 import logging
 import datetime
 

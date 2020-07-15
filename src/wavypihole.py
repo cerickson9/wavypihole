@@ -31,10 +31,10 @@ try:
     response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
 
     json_string = response.read()
-    loaded = json.loads(json_string)
-    parsed_json = yalm.safe_load(loaded)
+    parsed_json = json.loads(json_string)
+    further_json = byteify(parsed_json)
     logging.debug(parsed_json)
-    logging.debug(parsed_json["ads_blocked_today"])
+    logging.debug(further_json)
 
     adsblocked = parsed_json[0]['ads_blocked_today']
 #   ratioblocked = parsed_json['ads_percentage_today']
@@ -60,5 +60,16 @@ def printToDisplay():
     draw.text((25, 100), str(d.month) + "/" + str(d.day)  + "/" + str(d.year) + " ", font = smaller_font, fill = black)
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
+
+def byteify(input):
+    if isinstance(input, dict):
+        return {byteify(key): byteify(value)
+                for key, value in input.iteritems()}
+    elif isinstance(input, list):
+        return [byteify(element) for element in input]
+    elif isinstance(input, unicode):
+        return input.encode('utf-8')
+    else:
+        return input
 
 printToDisplay()

@@ -8,7 +8,7 @@ fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
-import json, ast
+import json,
 import pickle
 import urllib2
 import urllib
@@ -44,42 +44,13 @@ def printToDisplay():
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 
-def json_load_byteified(file_handle):
-    return _byteify(
-        json.load(file_handle, object_hook=_byteify),
-        ignore_dicts=True
-    )
-
-def json_loads_byteified(json_text):
-    return _byteify(
-        json.loads(json_text, object_hook=_byteify),
-        ignore_dicts=True
-    )
-
-def _byteify(data, ignore_dicts = False):
-    # if this is a unicode string, return its string representation
-    if isinstance(data, unicode):
-        return data.encode('utf-8')
-    # if this is a list of values, return list of byteified values
-    if isinstance(data, list):
-        return [ _byteify(item, ignore_dicts=True) for item in data ]
-    # if this is a dictionary, return dictionary of byteified keys and values
-    # but only if we haven't already byteified it
-    if isinstance(data, dict) and not ignore_dicts:
-        return {
-            _byteify(key, ignore_dicts=True): _byteify(value, ignore_dicts=True)
-            for key, value in data.iteritems()
-        }
-    # if it's anything else, return it in its original form
-    return data
-    
 try:
     response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
 
     json_string = response.read()
     
-    unicode_json = json.loads(json_string)
-    parsed_json = ast.literal_eval(json.dumps(unicode_json))
+    parsed_json = json.loads(json_string)
+
     logging.debug(parsed_json)
     logging.debug(type(parsed_json))
     adsblocked = parsed_json["ads_blocked_today"]

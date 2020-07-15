@@ -46,7 +46,7 @@ try:
     response = urllib2.urlopen('http://192.168.1.53/admin/api.php')
 
     json_string = response.read()
-    parsed_json = json.loads(json_string)
+    parsed_json = json.loads(json_string).decode('utf-8')
     logging.debug(parsed_json)
     decoded_json = json.dumps(parsed_json)
     json_final = pickle.loads(decoded_json)

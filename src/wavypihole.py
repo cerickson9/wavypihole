@@ -55,7 +55,7 @@ try:
     logging.debug(json_obj)
     adsblocked = json_obj.get("ads_blocked_today")
     
-    logging.debug(adsblocked)
+    logging.debug(type(json_obj))
     # ratioblocked = parsed_json[u"ads_percentage_today"]
     f.close()
     # printToDisplay()

@@ -8,7 +8,7 @@ fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
-import json,
+import json
 import pickle
 import urllib2
 import urllib

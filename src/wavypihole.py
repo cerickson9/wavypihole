@@ -49,7 +49,7 @@ try:
     parsed_json = json.loads(json_string)
     logging.debug(parsed_json)
     decoded_json = json.dumps(parsed_json)
-    json_final = pickle.Unpickler(decoded_json)
+    json_final = pickle.loads(decoded_json)
     logging.debug(type(json_final))
 
     adsblocked = json_final['ads_blocked_today']

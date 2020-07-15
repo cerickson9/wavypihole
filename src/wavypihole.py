@@ -49,13 +49,10 @@ try:
     
     parsed_json = json_string.json()
 
-    logging.debug(parsed_json)
+    logging.debug(parsed_json.keys())
     logging.debug(type(parsed_json))
-    json_obj = json.dumps(parsed_json)
-    logging.debug(json_obj)
-    adsblocked = json_obj.get("ads_blocked_today")
+    adsblocked = parsed_json.get("ads_blocked_today")
     
-    logging.debug(type(json_obj))
     # ratioblocked = parsed_json[u"ads_percentage_today"]
     f.close()
     # printToDisplay()
@@ -66,4 +63,4 @@ except:
     ratioblocked = '?'
     # printToDisplay()
 
-logging.debug(adsblocked)
+# logging.debug(adsblocked)

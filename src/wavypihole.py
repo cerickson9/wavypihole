@@ -47,12 +47,13 @@ json_string = requests.get('http://192.168.1.53/admin/api.php')
 logging.debug(json_string)
 parsed_json = json_string.json()
 print json_string.headers['content-type']
+print parsed_json.keys()
+print type(parsed_json)
 
-logging.debug(type(parsed_json))
+
 adsblocked = parsed_json['ads_blocked_today']
-logging.debug(adsblocked)
+print adsblocked
 # ratioblocked = parsed_json[u"ads_percentage_today"]
-f.close()
     # printToDisplay()
 
 

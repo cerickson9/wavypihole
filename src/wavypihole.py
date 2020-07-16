@@ -38,7 +38,7 @@ def printToDisplay():
     draw = ImageDraw.Draw(image1)  # Initialize ImageDraw over the container
 
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
-    draw.text((25, 30), str("%.1f" % round(percentageblocked,2)) + "%", font = font, fill = black) 
+    draw.text((25, 30), str('%.2f' % percentageblocked  + '%', font = font, fill = black) 
     draw.text((25, 50), totalqueries, font = font, fill = black) 
     draw.text((25, 100), str(d.month) + "/" + str(d.day)  + "/" + str(d.year) + " ", font = smaller_font, fill = black)
     epd.display(epd.getbuffer(image1))

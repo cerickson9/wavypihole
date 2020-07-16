@@ -33,9 +33,10 @@ def printToDisplay():
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
     image1.paste(bmp, (2,2))    # Paste the bmp over the container
     draw = ImageDraw.Draw(image1)  # Initialize ImageDraw over the container
-    draw.text((25, 20), str(adsblocked), font = font, fill = black)
-    draw.text((25, 30), str('%.2f' % percentageblocked)  + '%', font = font, fill = black)
-    draw.text((25, 50), str(totalqueries), font = font, fill = black) 
+    
+    draw.text((25, 20), str(adsblocked) + " ", font = font, fill = black)
+    draw.text((25, 35), str('%.2f' % percentageblocked)  + '% ', font = font, fill = black)
+    # draw.text((25, 50), str(totalqueries) + " ", font = font, fill = black) 
     draw.text((25, 100), str(d.month) + "/" + str(d.day)  + "/" + str(d.year) + " ", font = smaller_font, fill = black)
     epd.display(epd.getbuffer(image1))
 

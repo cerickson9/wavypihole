@@ -50,7 +50,7 @@ try:
     print json_string.headers['content-type']
     
     logging.debug(type(parsed_json))
-    adsblocked = parsed_json['ads_blocked_today'].decode('utf-8')
+    adsblocked = parsed_json['ads_blocked_today']
     logging.debug(adsblocked)
     # ratioblocked = parsed_json[u"ads_percentage_today"]
     f.close()

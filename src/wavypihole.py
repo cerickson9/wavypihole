@@ -38,23 +38,23 @@ def printToDisplay():
     draw = ImageDraw.Draw(image1)  # Initialize ImageDraw over the container
 
     draw.text((25, 20), str(adsblocked), font = font, fill = black) 
-    draw.text((25, 50), "example ", font = font, fill = black) 
+    draw.text((25, 30), str("%.1f" % round(percentageblocked,2)) + "%", font = font, fill = black) 
+    draw.text((25, 50), totalqueries, font = font, fill = black) 
     draw.text((25, 100), str(d.month) + "/" + str(d.day)  + "/" + str(d.year) + " ", font = smaller_font, fill = black)
-    # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 
 json_string = requests.get('http://192.168.1.53/admin/api.php')
 logging.debug(json_string)
 parsed_json = json_string.json()
 print json_string.headers['content-type']
-print parsed_json.keys()
+print parsed_json
 print type(parsed_json)
 
 
 adsblocked = parsed_json['ads_blocked_today']
+totalqueries = parsed_json['dns_queries_today']
+percentageblocked = parsed_json['ads_percentage_today']
 print adsblocked
-# ratioblocked = parsed_json[u"ads_percentage_today"]
-    # printToDisplay()
 
+printToDisplay()
 
-logging.debug(adsblocked)

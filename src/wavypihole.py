@@ -9,8 +9,6 @@ if os.path.exists(libdir):
 
 import json
 import requests
-import urllib2
-import urllib
 
 import logging
 import datetime
@@ -21,8 +19,7 @@ from PIL import Image,ImageDraw,ImageFont
 logging.basicConfig(level=logging.DEBUG)
 epd = epd2in13_V2.EPD() 
 epd.init(epd.FULL_UPDATE)
-logging.info("=============")
-logging.info("Starting")
+
 
 white = 1
 black = 0
@@ -42,18 +39,21 @@ def printToDisplay():
     draw.text((25, 100), str(d.month) + "/" + str(d.day)  + "/" + str(d.year) + " ", font = smaller_font, fill = black)
     epd.display(epd.getbuffer(image1))
 
-json_string = requests.get('http://192.168.1.53/admin/api.php')
-logging.debug(json_string)
-parsed_json = json_string.json()
-print json_string.headers['content-type']
-print parsed_json
-print type(parsed_json)
-
-
-adsblocked = parsed_json['ads_blocked_today']
-totalqueries = parsed_json['dns_queries_today']
-percentageblocked = parsed_json['ads_percentage_today']
-print adsblocked
+try:    
+    json_string = requests.get('http://192.168.1.53/admin/api.php')
+    logging.debug(json_string)
+    parsed_json = json_string.json()
+ 
+    adsblocked = parsed_json['ads_blocked_today']
+    totalqueries = parsed_json['dns_queries_today']
+    percentageblocked = parsed_json['ads_percentage_today']
+except:
+    print('an exception occurred')
+    adsblocked = 'err'
+    totalqueries = 'err'
+    percentageblocked = 'err'
 
 printToDisplay()
+
+
 

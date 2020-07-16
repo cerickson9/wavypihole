@@ -33,7 +33,7 @@ def printToDisplay():
     bmp = Image.open(os.path.join(picdir, 'logo.bmp'))
     image1.paste(bmp, (2,2))    # Paste the bmp over the container
     draw = ImageDraw.Draw(image1)  # Initialize ImageDraw over the container
-    draw.text(25, 10), "Ads blocked:", font = smaller_font, fill = black)
+    draw.text((25, 10), "Ads blocked:", font = smaller_font, fill = black)
     draw.text((25, 20), str(adsblocked) + " ", font = font, fill = black)
     draw.text((25, 50), str('%.2f' % percentageblocked)  + '% ', font = font, fill = black)
     # draw.text((25, 50), str(totalqueries) + " ", font = font, fill = black) 

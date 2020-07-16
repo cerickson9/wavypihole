@@ -43,23 +43,17 @@ def printToDisplay():
     # draw.text((25, 50), str("%.1f" % round(ratioblocked,2)) + "%", font = font, fill = black) 
     epd.display(epd.getbuffer(image1))
 
-try:
-    json_string = requests.get('http://192.168.1.53/admin/api.php')
-    logging.debug(json_string)
-    parsed_json = json_string.json()
-    print json_string.headers['content-type']
-    
-    logging.debug(type(parsed_json))
-    adsblocked = parsed_json['ads_blocked_today']
-    logging.debug(adsblocked)
-    # ratioblocked = parsed_json[u"ads_percentage_today"]
-    f.close()
+json_string = requests.get('http://192.168.1.53/admin/api.php')
+logging.debug(json_string)
+parsed_json = json_string.json()
+print json_string.headers['content-type']
+
+logging.debug(type(parsed_json))
+adsblocked = parsed_json['ads_blocked_today']
+logging.debug(adsblocked)
+# ratioblocked = parsed_json[u"ads_percentage_today"]
+f.close()
     # printToDisplay()
-except:
-    queries = '?'
-    adsblocked = '?'
-    ratio = '?'
-    ratioblocked = '?'
-    # printToDisplay()
+
 
 logging.debug(adsblocked)
